@@ -11,8 +11,7 @@ resource "azurerm_mysql_server" "server" {
   location                     = "${var.location}"
   version                      = "${var.server_version}"
   administrator_login          = "${var.sql_admin_username}"
-    administrator_login_password = ""
-  #administrator_login_password = "${local.sql_admin_password}"
+  administrator_login_password = "${local.sql_admin_password}"
   ssl_enforcement              = "Enabled"
 
   sku {

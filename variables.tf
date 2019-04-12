@@ -81,10 +81,7 @@ locals {
   name_prefix = "${var.name_prefix != "" ? var.name_prefix : local.default_name_prefix}"
   name        = "${local.name_prefix}${local.type}"
 
-  random_pw          = "${random_string.password.result}"
-  #key_vault_pw       = "${data.azurerm_key_vault_secret.admin_password.value}"
-  key_vault_pw       = ""
-  sql_admin_password = "${var.use_random_password == true ? local.random_pw : var.key_vault_pw}"
+  sql_admin_password = "${var.use_random_password ? random_string.password.result : var.key_vault_pw}"
 }
 
 # This module provides a data map output to lookup naming standard references
