@@ -4,6 +4,7 @@ resource "random_string" "password" {
   special          = true
   override_special = "/@\" "
 }
+
 resource "azurerm_mysql_server" "server" {
   name                         = "${local.name}${format("%03d", count.index + 1)}"
   count                        = "${var.count}"

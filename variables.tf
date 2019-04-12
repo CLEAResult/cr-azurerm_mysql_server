@@ -10,6 +10,7 @@ variable "location" {
 variable "count" {
   default = 1
 }
+
 variable "vcores" {
   default = "1"
 }
@@ -66,9 +67,6 @@ variable "database_storage_mb" {
   default     = "5120"
   description = "The default database storage in MB"
 }
-
-
-
 
 # Compute default name values
 locals {
