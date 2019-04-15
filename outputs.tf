@@ -1,4 +1,4 @@
-output "sql_myserver_name" {
+output "mysql_server_name" {
   description = "Server name of the Azure MySQL Server created."
   value       = ["${azurerm_mysql_server.server.*.name}"]
 }
