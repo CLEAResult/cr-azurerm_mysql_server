@@ -30,17 +30,17 @@ variable "rg_name" {
 }
 
 variable "server_version" {
-  description = "The version for the database server. Valid values are: 5.6 and 5.7."
+  description = "The version for the MySQL database server. Valid values are: 5.6 and 5.7."
   default     = "5.7"
 }
 
 variable "sql_admin_username" {
-  description = "The administrator username of the SQL Server."
+  description = "The administrator username of the Azure MySQL Server."
 }
 
 variable "use_random_password" {
   default     = true
-  description = "Default is true. If true, deploy the Azure SQL server with a randomly created password that will be visible in the state.  If false, you must have a valid vault_name and secret_name variable entered, which will supply the password."
+  description = "Default is true. If true, deploy the Azure MySQL server with a randomly created password that will be visible in the state.  If false, you must have a valid vault_name and secret_name variable entered, which will supply the password."
 }
 
 variable "key_vault_pw" {
