@@ -68,6 +68,17 @@ variable "database_storage_mb" {
   description = "The default database storage in MB"
 }
 
+variable "mysqlsku-map" {
+  type = "map"
+
+  default = {
+    "GeneralPurpose"  = "GP"
+    "MemoryOptimized" = "MO"
+    "Basic"           = "B"
+  }
+}
+
+
 # Compute default name values
 locals {
   env_id = "${lookup(module.naming.env-map, var.environment, "ENV")}"
@@ -80,6 +91,8 @@ locals {
   name        = "${local.name_prefix}${local.type}"
 
   sql_admin_password = "${var.use_random_password ? random_string.password.result : var.key_vault_pw}"
+
+  sku = "${lookup(var.mysqlsku-map, var.server_edition, "SKU")}"
 }
 
 # This module provides a data map output to lookup naming standard references

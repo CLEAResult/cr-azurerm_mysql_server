@@ -16,7 +16,7 @@ resource "azurerm_mysql_server" "server" {
   ssl_enforcement              = "Enabled"
 
   sku {
-    name     = "${substr(var.server_edition,0,1)}_Gen5_${var.vcores}"
+    name     = "${local.sku}_Gen5_${var.vcores}"
     capacity = "${var.vcores}"
     tier     = "${var.server_edition}"
     family   = "Gen5"
